@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import ViewUsers from "./components/ViewUsers";
+import { useState } from "react";
+import AddUser from "./components/AddUser";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [activeScreen, setActiveScreen] = useState("list");
+
+  function toggleScreen() {
+    activeScreen === "list" ? setActiveScreen("form") : setActiveScreen("list");
+  }
+
+  return activeScreen === "list" ? (
+    <ViewUsers toggleScreen={toggleScreen} />
+  ) : (
+    <AddUser toggleScreen={toggleScreen} />
   );
 }
 
