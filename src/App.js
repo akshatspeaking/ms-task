@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ViewUsers from "./components/ViewUsers";
 import { useState } from "react";
@@ -12,7 +11,7 @@ function App() {
   }
 
   return activeScreen === "list" ? (
-    <ViewUsers toggleScreen={(toggleScreen, activeScreen)} />
+    <ViewUsers toggleScreen={toggleScreen} activeScreen={activeScreen} />
   ) : (
     <AddUser toggleScreen={toggleScreen} />
   );

@@ -1,4 +1,3 @@
-import { findAllByRole } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 
 export default function AddUser({ toggleScreen }) {
