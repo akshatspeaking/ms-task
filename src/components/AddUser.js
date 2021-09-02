@@ -59,8 +59,30 @@ export default function AddUser({ toggleScreen }) {
 
   return (
     <div>
-      <form onSubmit={(e) => e.preventDefault()} action="#">
+      <button onClick={toggleScreen} className="p-2 md:w-40 ">
+        <div className="flex items-center p-4 bg-green-200 rounded-lg shadow-xs cursor-pointer hover:bg-green-500 hover:text-gray-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
+            />
+          </svg>
+          <div>
+            <p class=" text-xs font-medium ml-2 ">List of Users</p>
+          </div>
+        </div>
+      </button>
+      <div className="pt-8 flex flex-col gap-8 items-center justify-center">
         <input
+          className="p-1 rounded"
           type="text"
           value={username}
           placeholder="Username"
@@ -68,6 +90,7 @@ export default function AddUser({ toggleScreen }) {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          className="p-1 rounded"
           type="text"
           value={firstName}
           placeholder="First Name"
@@ -75,6 +98,7 @@ export default function AddUser({ toggleScreen }) {
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
+          className="p-1 rounded"
           type="text"
           value={lastName}
           placeholder="Last Name"
@@ -83,13 +107,16 @@ export default function AddUser({ toggleScreen }) {
         />
 
         <input
+          className="p-1 rounded"
           type="email"
           name="email"
           id="email"
           value={email}
+          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="p-1 rounded"
           type="password"
           name="pwd"
           id="pwd"
@@ -97,9 +124,32 @@ export default function AddUser({ toggleScreen }) {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={addUserToList}>Add User</button>
-      </form>
-      <button onClick={toggleScreen}>View List</button>
+
+        <button onClick={addUserToList} className="p-2 md:w-40 ">
+          <a
+            href="#"
+            className="flex items-center p-4 bg-blue-200 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <div>
+              <p class=" text-xs font-medium ml-2 ">Add To List</p>
+            </div>
+          </a>
+        </button>
+      </div>
     </div>
   );
 }
