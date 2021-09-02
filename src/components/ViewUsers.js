@@ -8,7 +8,12 @@ export default function ViewUsers({ toggleScreen }) {
   function fetchUserList() {
     const GET_URL = "http://3.6.93.159:7883/machstatz/get_all_users";
 
-    fetch(GET_URL)
+    fetch(GET_URL, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => res.json())
       .then(setListOfUsers);
   }
