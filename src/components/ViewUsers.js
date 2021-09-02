@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 export default function ViewUsers({ toggleScreen }) {
   const [listOfUsers, setListOfUsers] = useState([]);
 
-  useEffect(fetchUserList, []);
+  useEffect(fetchUserList, [activeScreen]);
 
   function fetchUserList() {
-    const GET_URL = "http://3.6.93.159:7883/machstatz/get_all_users";
+    const GET_URL =
+      "https://cors-anywhere.herokuapp.com/http://3.6.93.159:7883/machstatz/get_all_users";
 
     fetch(GET_URL, {
       headers: {

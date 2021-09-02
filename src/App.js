@@ -12,7 +12,7 @@ function App() {
   }
 
   return activeScreen === "list" ? (
-    <ViewUsers toggleScreen={toggleScreen} />
+    <ViewUsers toggleScreen={(toggleScreen, activeScreen)} />
   ) : (
     <AddUser toggleScreen={toggleScreen} />
   );
